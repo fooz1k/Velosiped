@@ -33,13 +33,13 @@
             this.CurrentWheelOnePositionLabel = new System.Windows.Forms.Label();
             this.CurrentWheelTwoPositionLabel = new System.Windows.Forms.Label();
             this.CurrentSteeringWheelPositionLabel = new System.Windows.Forms.Label();
-            this.MoveForwardButton = new System.Windows.Forms.Button();
-            this.MoveToLeftButton = new System.Windows.Forms.Button();
-            this.MoveToRightButton = new System.Windows.Forms.Button();
             this.CurrentPositionLabel = new System.Windows.Forms.Label();
             this.HealthLabel = new System.Windows.Forms.Label();
             this.LowHealthDamageButton = new System.Windows.Forms.Button();
             this.HighHealthDamageButton = new System.Windows.Forms.Button();
+            this.MovementLabel = new System.Windows.Forms.Label();
+            this.StopButton = new System.Windows.Forms.Button();
+            this.MoveButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // TurnLeftButton
@@ -89,36 +89,6 @@
             this.CurrentSteeringWheelPositionLabel.TabIndex = 4;
             this.CurrentSteeringWheelPositionLabel.Text = "Руль";
             // 
-            // MoveForwardButton
-            // 
-            this.MoveForwardButton.Location = new System.Drawing.Point(107, 261);
-            this.MoveForwardButton.Name = "MoveForwardButton";
-            this.MoveForwardButton.Size = new System.Drawing.Size(72, 46);
-            this.MoveForwardButton.TabIndex = 5;
-            this.MoveForwardButton.Text = "Ехать вперед";
-            this.MoveForwardButton.UseVisualStyleBackColor = true;
-            this.MoveForwardButton.Click += new System.EventHandler(this.MoveForwardButton_Click);
-            // 
-            // MoveToLeftButton
-            // 
-            this.MoveToLeftButton.Location = new System.Drawing.Point(11, 261);
-            this.MoveToLeftButton.Name = "MoveToLeftButton";
-            this.MoveToLeftButton.Size = new System.Drawing.Size(75, 46);
-            this.MoveToLeftButton.TabIndex = 6;
-            this.MoveToLeftButton.Text = "Ехать влево";
-            this.MoveToLeftButton.UseVisualStyleBackColor = true;
-            this.MoveToLeftButton.Click += new System.EventHandler(this.MoveToLeftButton_Click);
-            // 
-            // MoveToRightButton
-            // 
-            this.MoveToRightButton.Location = new System.Drawing.Point(194, 261);
-            this.MoveToRightButton.Name = "MoveToRightButton";
-            this.MoveToRightButton.Size = new System.Drawing.Size(75, 46);
-            this.MoveToRightButton.TabIndex = 7;
-            this.MoveToRightButton.Text = "Ехать вправо";
-            this.MoveToRightButton.UseVisualStyleBackColor = true;
-            this.MoveToRightButton.Click += new System.EventHandler(this.MoveToRightButton_Click);
-            // 
             // CurrentPositionLabel
             // 
             this.CurrentPositionLabel.AutoSize = true;
@@ -157,18 +127,47 @@
             this.HighHealthDamageButton.UseVisualStyleBackColor = true;
             this.HighHealthDamageButton.Click += new System.EventHandler(this.HighHealthDamageButton_Click);
             // 
+            // MovementLabel
+            // 
+            this.MovementLabel.AutoSize = true;
+            this.MovementLabel.Location = new System.Drawing.Point(15, 104);
+            this.MovementLabel.Name = "MovementLabel";
+            this.MovementLabel.Size = new System.Drawing.Size(37, 13);
+            this.MovementLabel.TabIndex = 12;
+            this.MovementLabel.Text = "Едем ";
+            // 
+            // StopButton
+            // 
+            this.StopButton.Location = new System.Drawing.Point(107, 261);
+            this.StopButton.Name = "StopButton";
+            this.StopButton.Size = new System.Drawing.Size(87, 23);
+            this.StopButton.TabIndex = 13;
+            this.StopButton.Text = "Остановится";
+            this.StopButton.UseVisualStyleBackColor = true;
+            this.StopButton.Click += new System.EventHandler(this.StopButton_Click);
+            // 
+            // MoveButton
+            // 
+            this.MoveButton.Location = new System.Drawing.Point(11, 261);
+            this.MoveButton.Name = "MoveButton";
+            this.MoveButton.Size = new System.Drawing.Size(75, 23);
+            this.MoveButton.TabIndex = 14;
+            this.MoveButton.Text = "Ехать";
+            this.MoveButton.UseVisualStyleBackColor = true;
+            this.MoveButton.Click += new System.EventHandler(this.MoveButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(288, 321);
+            this.ClientSize = new System.Drawing.Size(266, 312);
+            this.Controls.Add(this.MoveButton);
+            this.Controls.Add(this.StopButton);
+            this.Controls.Add(this.MovementLabel);
             this.Controls.Add(this.HighHealthDamageButton);
             this.Controls.Add(this.LowHealthDamageButton);
             this.Controls.Add(this.HealthLabel);
             this.Controls.Add(this.CurrentPositionLabel);
-            this.Controls.Add(this.MoveToRightButton);
-            this.Controls.Add(this.MoveToLeftButton);
-            this.Controls.Add(this.MoveForwardButton);
             this.Controls.Add(this.CurrentSteeringWheelPositionLabel);
             this.Controls.Add(this.CurrentWheelTwoPositionLabel);
             this.Controls.Add(this.CurrentWheelOnePositionLabel);
@@ -188,13 +187,13 @@
         private System.Windows.Forms.Label CurrentWheelOnePositionLabel;
         private System.Windows.Forms.Label CurrentWheelTwoPositionLabel;
         private System.Windows.Forms.Label CurrentSteeringWheelPositionLabel;
-        private System.Windows.Forms.Button MoveForwardButton;
-        private System.Windows.Forms.Button MoveToLeftButton;
-        private System.Windows.Forms.Button MoveToRightButton;
         private System.Windows.Forms.Label CurrentPositionLabel;
         private System.Windows.Forms.Label HealthLabel;
         private System.Windows.Forms.Button LowHealthDamageButton;
         private System.Windows.Forms.Button HighHealthDamageButton;
+        private System.Windows.Forms.Label MovementLabel;
+        private System.Windows.Forms.Button StopButton;
+        private System.Windows.Forms.Button MoveButton;
     }
 }
 

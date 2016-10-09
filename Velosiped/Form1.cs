@@ -12,7 +12,8 @@ namespace Velosiped
 {
     public partial class Form1 : Form
     {
-        Velosiped Velik = new Velosiped(10, 16,100);
+        Velosiped Velik = new Velosiped(10, 16,100,false);
+
         public Form1()
         {
             InitializeComponent();
@@ -31,6 +32,8 @@ namespace Velosiped
             CurrentWheelTwoPositionLabel.Text = ("Позиция заднего колеса X: " + Velik.WheelTwo.XCenterCoord + " Y: " + Velik.WheelTwo.YCenterCoord + " Z: " + Velik.WheelTwo.ZCenterCoord);
             CurrentPositionLabel.Text = ("Позиция велосипеда X: " + Velik.CurrentPositionX + " Y: " + Velik.CurrentPositionY + " Z: " + Velik.CurrentPostitionZ);
             HealthLabel.Text = "Состояние велосипеда : " + Velik.Health + "%";
+            if (Velik.Movement) MovementLabel.Text = "Едем";
+            if (!Velik.Movement) MovementLabel.Text = "Стоим";
         }
 
         private void TurnLeftButton_Click(object sender, EventArgs e)
@@ -59,44 +62,72 @@ namespace Velosiped
             UpdateForm();
         }
 
+
         private void MoveToLeftButton_Click(object sender, EventArgs e)
         {
-            if(Velik.SteeringWheelPosition == -1)
+            Velik.Movement = true;
+            while (true)
             {
-                Velik.MoveToLeft();
+                System.Threading.Thread.Sleep(100);
+                if (Velik.SteeringWheelPosition == -1)
+                {
+                    Velik.Move(Velik.SteeringWheelPosition);
+                }
+                else
+                {
+                    MessageBox.Show("Руль то поверни!");
+                }
+                UpdateForm();
+                Application.DoEvents();
+                if (!Velik.Movement) break;
             }
-            else
-            {
-                MessageBox.Show("Руль то поверни!");
-            }
-            UpdateForm();
         }
 
         private void MoveForwardButton_Click(object sender, EventArgs e)
         {
-            if(Velik.SteeringWheelPosition == 0)
+            Velik.Movement = true;
+            while (true)
             {
-                Velik.MoveForward();
+                System.Threading.Thread.Sleep(100);
+                if (Velik.SteeringWheelPosition == 0)
+                {
+                    Velik.Move(Velik.SteeringWheelPosition);
+                }
+                else
+                {
+                    Velik.Movement = false;
+                    MessageBox.Show("Поставь руль прямо");
+                }
+                UpdateForm();
+
+                Application.DoEvents();
+                if (!Velik.Movement) break;
+
             }
-            else
-            {
-                MessageBox.Show("Руль то прямо поставь!");
-            }
-            UpdateForm();
         }
 
         private void MoveToRightButton_Click(object sender, EventArgs e)
         {
-            if(Velik.SteeringWheelPosition == 1)
+            Velik.Movement = true;
+            while (true)
             {
-                Velik.MoveToRight();
+                System.Threading.Thread.Sleep(100);
+                if (Velik.SteeringWheelPosition == 1)
+                {
+                    Velik.Move(Velik.SteeringWheelPosition);
+                }
+                else
+                {
+                    MessageBox.Show("Руль то поверни!");
+                }
+                UpdateForm();
+
+                Application.DoEvents();
+                if (!Velik.Movement) break;
+
             }
-            else
-            {
-                MessageBox.Show("Руль то поверни!");
-            }
-            UpdateForm();
         }
+
 
         private void LowHealthDamageButton_Click(object sender, EventArgs e)
         {
@@ -108,6 +139,27 @@ namespace Velosiped
         {
             Velik.HighDamage();
             UpdateForm();
+        }
+
+        private void StopButton_Click(object sender, EventArgs e)
+        {
+            Velik.Movement = false;
+            UpdateForm();
+        }
+
+        private void MoveButton_Click(object sender, EventArgs e)
+        {
+            Velik.Movement = true;
+            while (true)
+            {
+                System.Threading.Thread.Sleep(100);
+
+                Velik.Move(Velik.SteeringWheelPosition);
+
+                UpdateForm();
+                Application.DoEvents();
+                if (!Velik.Movement) break;
+            }
         }
     }
 }

@@ -18,16 +18,20 @@ namespace Velosiped
 
         public int Health;
 
+        public bool Movement;
+
         public Koleso WheelOne = new Koleso();
         public Koleso WheelTwo = new Koleso();
 
-        public Velosiped(double wheelBase, double wheelRadius,int health)
+        public Velosiped(double wheelBase, double wheelRadius, int health, bool movement)
         {
             SteeringWheelPosition = 0;
             WheelBase = wheelBase;
             WheelRadius = wheelRadius;
 
             Health = health;
+
+            Movement = movement;
 
             CurrentPositionX = 0.0;
             CurrentPositionY = 0.0;
@@ -42,35 +46,71 @@ namespace Velosiped
             WheelTwo.ZCenterCoord = CurrentPostitionZ;
         }
 
-        public void MoveForward()
+        public void Move (int direction)
         {
-            CurrentPositionY += 10;
-            WheelOne.YCenterCoord = CurrentPositionY - WheelRadius;
-            WheelTwo.YCenterCoord = WheelOne.YCenterCoord - WheelBase;
+            switch(direction)
+            {
+                case -1: {
+                        CurrentPositionX -= 5;
+                        CurrentPositionY += 10;
+
+                        WheelOne.XCenterCoord += CurrentPositionX;
+                        WheelOne.YCenterCoord = CurrentPositionY - WheelRadius;
+
+                        WheelTwo.XCenterCoord = CurrentPositionX;
+                        WheelTwo.YCenterCoord = WheelOne.YCenterCoord - WheelBase;
+                        break;
+                    }
+                case 0: {
+                        CurrentPositionY += 10;
+                        WheelOne.YCenterCoord = CurrentPositionY - WheelRadius;
+                        WheelTwo.YCenterCoord = WheelOne.YCenterCoord - WheelBase;
+                        break;
+                    }
+                case 1: {
+                        CurrentPositionX += 5;
+                        CurrentPositionY += 10;
+
+                        WheelOne.XCenterCoord += CurrentPositionX;
+                        WheelOne.YCenterCoord = CurrentPositionY - WheelRadius;
+
+                        WheelTwo.XCenterCoord = CurrentPositionX;
+                        WheelTwo.YCenterCoord = WheelOne.YCenterCoord - WheelBase;
+                        break;
+                    }
+            }
+
         }
 
-        public void MoveToLeft()
-        {
-            CurrentPositionX -= 5;
-            CurrentPositionY += 10;
+        //public void MoveForward()
+        //{
+        //    CurrentPositionY += 10;
+        //    WheelOne.YCenterCoord = CurrentPositionY - WheelRadius;
+        //    WheelTwo.YCenterCoord = WheelOne.YCenterCoord - WheelBase;
+        //}
 
-            WheelOne.XCenterCoord += CurrentPositionX;
-            WheelOne.YCenterCoord = CurrentPositionY - WheelRadius;
+        //public void MoveToLeft()
+        //{
+        //    CurrentPositionX -= 5;
+        //    CurrentPositionY += 10;
 
-            WheelTwo.XCenterCoord = CurrentPositionX;
-            WheelTwo.YCenterCoord = WheelOne.YCenterCoord - WheelBase;
-        }
-        public void MoveToRight()
-        {
-            CurrentPositionX += 5;
-            CurrentPositionY += 10;
+        //    WheelOne.XCenterCoord += CurrentPositionX;
+        //    WheelOne.YCenterCoord = CurrentPositionY - WheelRadius;
 
-            WheelOne.XCenterCoord += CurrentPositionX;
-            WheelOne.YCenterCoord = CurrentPositionY - WheelRadius;
+        //    WheelTwo.XCenterCoord = CurrentPositionX;
+        //    WheelTwo.YCenterCoord = WheelOne.YCenterCoord - WheelBase;
+        //}
+        //public void MoveToRight()
+        //{
+        //    CurrentPositionX += 5;
+        //    CurrentPositionY += 10;
 
-            WheelTwo.XCenterCoord = CurrentPositionX;
-            WheelTwo.YCenterCoord = WheelOne.YCenterCoord - WheelBase;
-        }
+        //    WheelOne.XCenterCoord += CurrentPositionX;
+        //    WheelOne.YCenterCoord = CurrentPositionY - WheelRadius;
+
+        //    WheelTwo.XCenterCoord = CurrentPositionX;
+        //    WheelTwo.YCenterCoord = WheelOne.YCenterCoord - WheelBase;
+        //}
 
         public void TurnRight()
         {
