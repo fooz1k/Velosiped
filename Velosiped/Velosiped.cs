@@ -57,7 +57,7 @@ namespace Velosiped
                         WheelOne.XCenterCoord += CurrentPositionX;
                         WheelOne.YCenterCoord = CurrentPositionY - WheelRadius;
 
-                        WheelTwo.XCenterCoord = CurrentPositionX;
+                        WheelTwo.XCenterCoord += CurrentPositionX;
                         WheelTwo.YCenterCoord = WheelOne.YCenterCoord - WheelBase;
                         break;
                     }
@@ -74,43 +74,13 @@ namespace Velosiped
                         WheelOne.XCenterCoord += CurrentPositionX;
                         WheelOne.YCenterCoord = CurrentPositionY - WheelRadius;
 
-                        WheelTwo.XCenterCoord = CurrentPositionX;
+                        WheelTwo.XCenterCoord += CurrentPositionX;
                         WheelTwo.YCenterCoord = WheelOne.YCenterCoord - WheelBase;
                         break;
                     }
             }
 
         }
-
-        //public void MoveForward()
-        //{
-        //    CurrentPositionY += 10;
-        //    WheelOne.YCenterCoord = CurrentPositionY - WheelRadius;
-        //    WheelTwo.YCenterCoord = WheelOne.YCenterCoord - WheelBase;
-        //}
-
-        //public void MoveToLeft()
-        //{
-        //    CurrentPositionX -= 5;
-        //    CurrentPositionY += 10;
-
-        //    WheelOne.XCenterCoord += CurrentPositionX;
-        //    WheelOne.YCenterCoord = CurrentPositionY - WheelRadius;
-
-        //    WheelTwo.XCenterCoord = CurrentPositionX;
-        //    WheelTwo.YCenterCoord = WheelOne.YCenterCoord - WheelBase;
-        //}
-        //public void MoveToRight()
-        //{
-        //    CurrentPositionX += 5;
-        //    CurrentPositionY += 10;
-
-        //    WheelOne.XCenterCoord += CurrentPositionX;
-        //    WheelOne.YCenterCoord = CurrentPositionY - WheelRadius;
-
-        //    WheelTwo.XCenterCoord = CurrentPositionX;
-        //    WheelTwo.YCenterCoord = WheelOne.YCenterCoord - WheelBase;
-        //}
 
         public void TurnRight()
         {
