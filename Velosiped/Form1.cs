@@ -64,13 +64,13 @@ namespace Velosiped
 
         private void LowHealthDamageButton_Click(object sender, EventArgs e)
         {
-            Velik.LowDamage();
+            Velik.Damage(10);
             UpdateForm();
         }
 
         private void HighHealthDamageButton_Click(object sender, EventArgs e)
         {
-            Velik.HighDamage();
+            Velik.Damage(50);
             UpdateForm();
         }
 
@@ -82,17 +82,33 @@ namespace Velosiped
 
         private void MoveButton_Click(object sender, EventArgs e)
         {
-            Velik.Movement = true;
-            while (true)
-            {
-                System.Threading.Thread.Sleep(100);
 
-                Velik.Move(Velik.SteeringWheelPosition);
+                Velik.Movement = true;
+                while (true)
+                {
+                if (Velik.Health > 0)
+                {
+                    System.Threading.Thread.Sleep(100);
 
-                UpdateForm();
-                Application.DoEvents();
-                if (!Velik.Movement) break;
+                    Velik.Move(Velik.SteeringWheelPosition);
+
+                    UpdateForm();
+                    Application.DoEvents();
+                    if (!Velik.Movement) break;
+                }
+                else
+                {
+                    MessageBox.Show("Велику плохо, не поедет никуда");
+                    Velik.Movement = false;
+                    break;
+                }
             }
+        }
+
+        private void ReparButton_Click(object sender, EventArgs e)
+        {
+            Velik.Repair();
+            UpdateForm();
         }
     }
 }

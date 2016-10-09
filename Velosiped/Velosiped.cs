@@ -92,11 +92,11 @@ namespace Velosiped
            SteeringWheelPosition -= 1;
         }
 
-        public void LowDamage()
+        public void Damage(int damage)
         {
-            if (Health >= 10)
+            if (Health >= damage)
             {
-                Health -= 10;
+                Health -= damage;
             }
             else
             {
@@ -104,19 +104,10 @@ namespace Velosiped
             }
         }
 
-        public void HighDamage()
+        public void Repair()
         {
-            if (Health > 0)
-            {
-                Health -= 50;
-                if (Health < 0) Health = 0;
-            }
-            else
-            {
-                System.Windows.Forms.MessageBox.Show("Велику и так плохо!");
-            }
+            Health = 100;
         }
-
     }
 }
 

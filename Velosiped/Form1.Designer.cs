@@ -40,6 +40,7 @@
             this.MovementLabel = new System.Windows.Forms.Label();
             this.StopButton = new System.Windows.Forms.Button();
             this.MoveButton = new System.Windows.Forms.Button();
+            this.ReparButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // TurnLeftButton
@@ -156,11 +157,22 @@
             this.MoveButton.UseVisualStyleBackColor = true;
             this.MoveButton.Click += new System.EventHandler(this.MoveButton_Click);
             // 
+            // ReparButton
+            // 
+            this.ReparButton.Location = new System.Drawing.Point(186, 166);
+            this.ReparButton.Name = "ReparButton";
+            this.ReparButton.Size = new System.Drawing.Size(75, 42);
+            this.ReparButton.TabIndex = 15;
+            this.ReparButton.Text = "Починить велик";
+            this.ReparButton.UseVisualStyleBackColor = true;
+            this.ReparButton.Click += new System.EventHandler(this.ReparButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(266, 312);
+            this.Controls.Add(this.ReparButton);
             this.Controls.Add(this.MoveButton);
             this.Controls.Add(this.StopButton);
             this.Controls.Add(this.MovementLabel);
@@ -194,6 +206,7 @@
         private System.Windows.Forms.Label MovementLabel;
         private System.Windows.Forms.Button StopButton;
         private System.Windows.Forms.Button MoveButton;
+        private System.Windows.Forms.Button ReparButton;
     }
 }
 
